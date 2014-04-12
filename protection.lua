@@ -2,7 +2,7 @@ landrush.offense = {}
 
 function landrush.can_interact(pos, name)
 
-	if ( pos.y < -200 or name == '' or name == nil ) then
+	if ( pos.y < -200 or name == '' or name == nil or name == 'deployer' ) then
 		return true
 	end
 
