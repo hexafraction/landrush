@@ -151,7 +151,6 @@ minetest.register_chatcommand("showchunk", {
 		local player = minetest.env:get_player_by_name(name)
 		local pos = player:getpos()		
 				local entpos = landrush.get_real_chunk_center(pos)
-				entpos.y = (pos.y-1)
 				minetest.env:add_entity(entpos, "landrush:showarea")	
 	end,
 })
