@@ -143,6 +143,20 @@ minetest.register_chatcommand("showarea", {
 	end,
 })
 
+minetest.register_chatcommand("showchunk", {
+	params = "",
+	description = "highlights the boundaries of the current protected area",
+	privs = {interact=true},
+	func = function(name, param)
+		local player = minetest.env:get_player_by_name(name)
+		local pos = player:getpos()		
+				local entpos = landrush.get_real_chunk_center(pos)
+				entpos.y = (pos.y-1)
+				minetest.env:add_entity(entpos, "landrush:showarea")	
+	end,
+})
+
+
 minetest.register_chatcommand("shareall", {
     params = "<name>",
     description = "shares all your landclaims with <name>",
