@@ -36,6 +36,16 @@ function landrush.get_chunk_center(pos)
 	return {x=x,y=y,z=z}
 end
 
+function landrush.get_real_chunk_center(pos)
+	local x = math.floor(pos.x/landrush.config:get("chunkSize"))*landrush.config:get("chunkSize")+7.5
+	
+	local y = math.floor(pos.y/landrush.config:get("chunkSize"))*landrush.config:get("chunkSize")+7.5
+
+	local z = math.floor(pos.z/landrush.config:get("chunkSize"))*landrush.config:get("chunkSize")+7.5
+	return {x=x,y=y,z=z}
+end
+
+
 function landrush.get_owner(pos)
 	local chunk = landrush.get_chunk(pos)
 	if landrush.claims[chunk] then
